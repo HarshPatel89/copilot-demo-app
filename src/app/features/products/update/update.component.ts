@@ -10,6 +10,10 @@ import { Product } from '../../../shared/models/product';
 import { ProductService } from '../../../shared/services/product.service';
 import { ToastModule } from 'primeng/toast';
 
+/**
+ * Component for updating existing product information.
+ * Provides a form interface to edit product details and handles the update operation.
+ */
 @Component({
   selector: 'app-update',
   standalone: true,
@@ -26,9 +30,13 @@ import { ToastModule } from 'primeng/toast';
   styleUrl: './update.component.css'
 })
 export class UpdateComponent implements OnInit {
+  /** The product to be edited, received as an input from parent component */
   @Input() product: Product | null = null;
+  
+  /** Event emitter that notifies parent component when a product has been updated */
   @Output() productUpdated = new EventEmitter<void>();
   
+  /** Local copy of the product being edited */
   editedProduct: Product = {
     id: 0,
     name: '',
@@ -41,12 +49,19 @@ export class UpdateComponent implements OnInit {
     private messageService: MessageService
   ) {}
 
+  /**
+   * Initializes the component by creating a copy of the input product for editing
+   */
   ngOnInit() {
     if (this.product) {
       this.editedProduct = { ...this.product };
     }
   }
 
+  /**
+   * Handles the product update operation.
+   * Calls the product service to update the product and shows appropriate success/error messages.
+   */
   updateProduct() {
     if (this.editedProduct && this.editedProduct.id) {
       this.productService.updateProduct(this.editedProduct.id, this.editedProduct).subscribe({
