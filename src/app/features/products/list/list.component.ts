@@ -4,10 +4,13 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
+import { DialogModule } from 'primeng/dialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
 import { ProductService } from '../../../shared/services/product.service';
 import { Product } from '../../../shared/models/product';
+import { AddComponent } from '../add/add.component';
+import { UpdateComponent } from '../update/update.component';
 
 @Component({
   selector: 'app-list',
@@ -18,7 +21,9 @@ import { Product } from '../../../shared/models/product';
     ButtonModule,
     ConfirmDialogModule,
     ToastModule,
-    
+    DialogModule,
+    AddComponent,
+    UpdateComponent
   ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css',
@@ -30,6 +35,9 @@ import { Product } from '../../../shared/models/product';
 })
 export class ListComponent implements OnInit {
   products: Product[] = [];
+  displayAddDialog = false;
+  displayUpdateDialog = false;
+  selectedProduct: Product | null = null;
 
   constructor(
     private productService: ProductService,
@@ -82,7 +90,36 @@ export class ListComponent implements OnInit {
     });
   }
 
+  showUpdateDialog(product: Product): void {
+    this.selectedProduct = product;
+    this.displayUpdateDialog = true;
+  }
+
+  hideUpdateDialog(): void {
+    this.displayUpdateDialog = false;
+    this.selectedProduct = null;
+    this.loadProducts();
+  }
+
   navigateToUpdate(id: number): void {
-    this.router.navigate(['/products/update', id]);
+    const product = this.products.find(p => p.id === id);
+    if (product) {
+      this.showUpdateDialog(product);
+    } else {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Product not found'
+      });
+    }
+  }
+
+  showAddDialog(): void {
+    this.displayAddDialog = true;
+  }
+
+  hideAddDialog(): void {
+    this.displayAddDialog = false;
+    this.loadProducts();
   }
 }

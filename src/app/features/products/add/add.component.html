@@ -1,1 +1,22 @@
-<p>add works!</p>
+<div class="flex flex-column gap-3">
+    <div class="field">
+        <label for="name">Name</label>
+        <input id="name" type="text" pInputText [(ngModel)]="product.name" class="w-full">
+    </div>
+    
+    <div class="field">
+        <label for="description">Description</label>
+        <textarea id="description" rows="3" pTextarea  [(ngModel)]="product.description" class="w-full"></textarea>
+    </div>
+    
+    <div class="field">
+        <label for="price">Price</label>
+        <p-inputNumber id="price" [(ngModel)]="product.price" mode="currency" currency="USD" class="w-full"></p-inputNumber>
+    </div>
+
+    <div class="flex justify-content-end">
+        <p-button label="Save" icon="pi pi-save" (onClick)="saveProduct()"></p-button>
+    </div>
+</div>
+
+<p-toast></p-toast>

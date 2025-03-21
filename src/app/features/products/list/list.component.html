@@ -1,4 +1,8 @@
 <div class="card">
+    <div class="flex justify-content-between mb-3">
+        <h2>Products</h2>
+        <p-button label="Add Product" icon="pi pi-plus" (onClick)="showAddDialog()"></p-button>
+    </div>
     <p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
         <ng-template pTemplate="header">
             <tr>
@@ -23,6 +27,28 @@
         </ng-template>
     </p-table>
 </div>
+
+<p-dialog 
+    [(visible)]="displayAddDialog" 
+    [modal]="true" 
+    [style]="{width: '450px'}" 
+    header="Add Product" 
+    (onHide)="hideAddDialog()">
+    <app-add (productSaved)="hideAddDialog()"></app-add>
+</p-dialog>
+
+<p-dialog 
+    [(visible)]="displayUpdateDialog" 
+    [modal]="true" 
+    [style]="{width: '450px'}" 
+    header="Update Product" 
+    (onHide)="hideUpdateDialog()">
+    <app-update 
+        *ngIf="selectedProduct"
+        [product]="selectedProduct"
+        (productUpdated)="hideUpdateDialog()">
+    </app-update>
+</p-dialog>
 
 <p-confirmDialog></p-confirmDialog>
 <p-toast></p-toast>

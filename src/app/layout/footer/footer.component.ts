@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   template: `
     <div class="footer p-3">
       <div class="flex justify-content-between align-items-center">
-        <p>© {{currentYear}} Your Company Name. All rights reserved.</p>
+        <p>© {{currentYear}} ConvergeSolution. All rights reserved.</p>
         <div class="social-links">
           <i class="pi pi-facebook mr-2"></i>
           <i class="pi pi-twitter mr-2"></i>
