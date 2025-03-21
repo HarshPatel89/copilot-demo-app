@@ -3,13 +3,6 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent, HeaderComponent } from './layout';
 
-/**
- * Root component of the application. Provides the main layout structure including
- * header, sidebar, main content area, and footer.
- * 
- * This component serves as the application shell and handles the overall layout
- * using a flex-based container system.
- */
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -19,10 +12,29 @@ import { FooterComponent, HeaderComponent } from './layout';
     HeaderComponent,
     FooterComponent
   ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  template: `
+    <div class="layout-wrapper">
+      <app-header></app-header>
+      <main class="layout-main">
+        <router-outlet></router-outlet>
+      </main>
+      <app-footer></app-footer>
+    </div>
+  `,
+  styles: [`
+    .layout-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .layout-main {
+      flex: 1;
+      padding: 1rem;
+      margin-top: 4rem;
+    }
+  `]
 })
 export class AppComponent {
-  /** The title of the application */
   title = 'copilot-demo-app';
 }

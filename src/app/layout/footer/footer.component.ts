@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-/**
- * Application footer component that displays copyright information and social media links.
- * Automatically updates the copyright year and provides consistent styling across the application.
- * Uses PrimeNG icons for social media links.
- */
 @Component({
   selector: 'app-footer',
   standalone: true,
@@ -33,6 +28,5 @@ import { CommonModule } from '@angular/common';
   `]
 })
 export class FooterComponent {
-  /** Current year for copyright display - automatically updates */
   currentYear = new Date().getFullYear();
 }
