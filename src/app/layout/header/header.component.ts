@@ -6,6 +6,11 @@ import { SidebarModule } from 'primeng/sidebar';
 import { ButtonModule } from 'primeng/button';
 import { PanelMenuModule } from 'primeng/panelmenu';
 
+/**
+ * Top navigation header component that provides the main navigation menu.
+ * Uses PrimeNG's Menubar component to display navigation items with icons.
+ * Implements a responsive design that works across different screen sizes.
+ */
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -64,6 +69,7 @@ import { PanelMenuModule } from 'primeng/panelmenu';
 export class HeaderComponent {
   sidebarVisible: boolean = false;
 
+  /** Navigation menu items configuration */
   items: MenuItem[] = [
     {
       label: 'Home',

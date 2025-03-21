@@ -26,7 +26,10 @@ import { ToastModule } from 'primeng/toast';
   styleUrl: './update.component.css'
 })
 export class UpdateComponent implements OnInit {
-  @Input() product: Product | null = null;
+/** Input property for the product to be updated */
+  @Input() product!: Product;
+  
+  /** Event emitter for notifying parent component of successful updates */
   @Output() productUpdated = new EventEmitter<void>();
   
   editedProduct: Product = {
