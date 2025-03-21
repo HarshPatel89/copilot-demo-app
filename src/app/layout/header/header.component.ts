@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuItem } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -28,7 +29,8 @@ export class HeaderComponent {
     },
     {
       label: 'Products',
-      icon: 'pi pi-list'
+      icon: 'pi pi-list',
+      routerLink: '/products'
     },
     {
       label: 'About',

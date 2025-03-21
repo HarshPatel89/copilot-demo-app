@@ -26,7 +26,8 @@ export class SidebarComponent {
   items = [
     {
       label: 'Menu Item 1',
-      icon: 'pi pi-fw pi-file'
+      icon: 'pi pi-fw pi-file',
+      
     },
     {
       label: 'Menu Item 2',
