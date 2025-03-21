@@ -23,8 +23,7 @@ import { ToastModule } from 'primeng/toast';
     ToastModule
   ],
   templateUrl: './update.component.html',
-  styleUrl: './update.component.css',
-  providers: [MessageService]
+  styleUrl: './update.component.css'
 })
 export class UpdateComponent implements OnInit {
   @Input() product: Product | null = null;

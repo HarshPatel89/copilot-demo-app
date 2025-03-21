@@ -23,8 +23,7 @@ import { ToastModule } from 'primeng/toast';
     ToastModule
   ],
   templateUrl: './add.component.html',
-  styleUrl: './add.component.css',
-  providers: [MessageService]
+  styleUrl: './add.component.css'
 })
 export class AddComponent {
   @Output() productSaved = new EventEmitter<void>();
@@ -41,6 +40,15 @@ export class AddComponent {
     private messageService: MessageService
   ) {}
 
+  resetProduct(): void {
+    this.product = {
+      id: 0,
+      name: '',
+      description: '',
+      price: 0
+    };
+  }
+
   saveProduct(): void {
     this.productService.addProduct(this.product).subscribe({
       next: () => {
@@ -49,6 +57,7 @@ export class AddComponent {
           summary: 'Success',
           detail: 'Product added successfully'
         });
+        this.resetProduct(); // Reset the form after successful save
         this.productSaved.emit();
       },
       error: (error) => {
