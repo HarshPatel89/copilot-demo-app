@@ -26,6 +26,7 @@ import { ToastModule } from 'primeng/toast';
     InputNumberModule,
     ToastModule
   ],
+  providers: [MessageService],
   templateUrl: './add.component.html',
   styleUrl: './add.component.css'
 })
@@ -43,7 +44,8 @@ export class AddComponent {
 
   constructor(
     private productService: ProductService,
-    private messageService: MessageService
+    // Change to public for testing
+    public messageService: MessageService
   ) {}
 
   /**
