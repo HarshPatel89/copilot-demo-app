@@ -18,7 +18,7 @@ class MockMessageService {
   add = jasmine.createSpy('add');
 }
 
-fdescribe('AddComponent', () => {
+describe('AddComponent', () => {
   let component: AddComponent;
   let fixture: ComponentFixture<AddComponent>;
   let mockCustomerService: MockCustomerService;
