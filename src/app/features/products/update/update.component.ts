@@ -26,6 +26,7 @@ import { ToastModule } from 'primeng/toast';
     InputNumberModule,
     ToastModule
   ],
+  providers: [MessageService],
   templateUrl: './update.component.html',
   styleUrl: './update.component.css'
 })
