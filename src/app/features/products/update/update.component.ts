@@ -64,7 +64,7 @@ export class UpdateComponent implements OnInit {
    */
   updateProduct() {
     if (this.editedProduct && this.editedProduct.id) {
-      this.productService.updateProduct(this.editedProduct.id, this.editedProduct).subscribe({
+      this.productService.updateProduct(this.editedProduct).subscribe({
         next: () => {
           this.messageService.add({
             severity: 'success',
