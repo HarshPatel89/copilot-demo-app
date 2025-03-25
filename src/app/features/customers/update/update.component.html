@@ -1,1 +1,19 @@
-<p>update works!</p>
+<div class="flex flex-column gap-3">
+    <div class="field">
+        <label for="name">Name</label>
+        <input type="text" pInputText id="name" [(ngModel)]="editedCustomer.name" class="w-full" />
+    </div>
+    <div class="field">
+        <label for="email">Email</label>
+        <input type="email" pInputText id="email" [(ngModel)]="editedCustomer.email" class="w-full" />
+    </div>
+    <div class="field">
+        <label for="isPrimeMember" class="block">Prime Member</label>
+        <p-checkbox id="isPrimeMember" [(ngModel)]="editedCustomer.isPrimeMember" [binary]="true"></p-checkbox>
+    </div>
+    <div class="flex justify-content-end">
+        <p-button label="Update" icon="pi pi-check" (onClick)="updateCustomer()"></p-button>
+    </div>
+</div>
+
+<p-toast></p-toast>

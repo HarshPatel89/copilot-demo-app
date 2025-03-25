@@ -1,1 +1,22 @@
-<p>add works!</p>
+<div class="flex flex-column gap-3">
+    <div class="field">
+        <label for="name">Name</label>
+        <input id="name" type="text" pInputText [(ngModel)]="newCustomer.name" class="w-full">
+    </div>
+    
+    <div class="field">
+        <label for="email">Email</label>
+        <input id="email" type="email" pInputText [(ngModel)]="newCustomer.email" class="w-full">
+    </div>
+    
+    <div class="field">
+        <label for="isPrimeMember" class="block">Prime Member</label>
+        <p-checkbox id="isPrimeMember" [(ngModel)]="newCustomer.isPrimeMember" [binary]="true"></p-checkbox>
+    </div>
+
+    <div class="flex justify-content-end">
+        <p-button label="Save" icon="pi pi-save" (onClick)="saveCustomer()"></p-button>
+    </div>
+</div>
+
+<p-toast></p-toast>

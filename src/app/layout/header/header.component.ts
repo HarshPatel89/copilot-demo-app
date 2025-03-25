@@ -76,6 +76,11 @@ export class HeaderComponent {
       routerLink: ['/products']
     },
     {
+      label: 'Customers',
+      icon: 'pi pi-users',
+      routerLink: ['/customers']
+    },
+    {
       label: 'About',
       icon: 'pi pi-info-circle',
       routerLink: ['/about']
@@ -101,6 +106,22 @@ export class HeaderComponent {
           label: 'Add Product',
           icon: 'pi pi-plus',
           routerLink: ['/products/add']
+        }
+      ]
+    },
+    {
+      label: 'Customers',
+      icon: 'pi pi-users',
+      items: [
+        {
+          label: 'View Customers',
+          icon: 'pi pi-list',
+          routerLink: ['/customers']
+        },
+        {
+          label: 'Add Customer',
+          icon: 'pi pi-plus',
+          routerLink: ['/customers/add']
         }
       ]
     },
